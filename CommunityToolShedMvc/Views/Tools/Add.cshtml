@@ -1,0 +1,23 @@
+﻿@model CommunityToolShedMvc.ViewModels.AddItemViewModel
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Add Item</h2>
+
+<div>
+    @using (Html.BeginForm())
+    {
+       <div>
+           @Html.TextBoxFor(m => m.Tool.Name)
+       </div>
+        <div>
+        @Html.TextBoxFor(m => m.Tool.Warnings)
+       </div>
+        
+        @Html.DropDownListFor(m => m.Tool.CategoriesId, Model.CategorySelectList, "Tool Type")
+        @Html.DropDownListFor(m => m.Tool.AgeId, Model.AgeSelectList, "Age")
+        <button type="submit">Submit</button>
+    }
+
+</div>

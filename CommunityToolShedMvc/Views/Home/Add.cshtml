@@ -1,0 +1,16 @@
+﻿@model CommunityToolShedMvc.ViewModels.AddItemViewModel
+@{
+    ViewBag.Title = "Add";
+}
+
+<h2>Add</h2>
+
+@using (Html.BeginForm())
+{
+    <div>
+        @Html.TextBoxFor(m => m.Tool.Name)
+    </div>
+    <div>
+        @Html.TextBoxFor(m => m.Tool.Warnings)
+    </div>
+

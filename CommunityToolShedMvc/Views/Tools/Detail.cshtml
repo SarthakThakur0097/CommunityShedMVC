@@ -1,0 +1,24 @@
+﻿@*@model List<CommunityToolShedMvc.Models.Tool>*@
+@model CommunityToolShedMvc.ViewModels.DetailViewModel
+@{
+    ViewBag.Title = "Detail";
+}
+
+
+<h2>Detail</h2>
+
+<div>
+    <p>Name: @Model.Tool.Name</p>
+    <p>Type: @Model.Tool.Type</p>
+    <p>Warngings: @Model.Tool.Warnings</p>
+    <p>Age: @Model.Tool.Age</p>
+</div>
+
+<div>
+    @using (Html.BeginForm())
+    {
+        <button type="submit">Submit</button>
+    }
+
+</div>
+

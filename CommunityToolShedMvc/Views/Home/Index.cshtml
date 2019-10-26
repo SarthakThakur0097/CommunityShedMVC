@@ -1,0 +1,32 @@
+﻿@model List<CommunityToolShedMvc.Models.Communites>
+@{
+    ViewBag.Title = "Home";
+}
+
+
+<h2>Home</h2>
+
+<div style="width:35%">
+
+    <table class="table table-sm table-striped table-hover">
+        <thead class="thead-dark">
+            <tr>
+                <th>Name</th>
+                <th>Availability</th>
+                @*<th>Owner</th>*@
+            </tr>
+        </thead>
+        @foreach (var com in Model)
+        {
+            <tr>
+                <td>@com.Name</td>
+                <td>@com.Availability</td>
+                <td>@Html.ActionLink("SELECT", "Index", "SearchItem", new { communityId = com.Id }, null)</td>
+            </tr>
+        }
+    </table>
+    @Html.ActionLink("Add Item", "Add", "Home")
+</div>
+
+
+

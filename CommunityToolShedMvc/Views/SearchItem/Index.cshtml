@@ -1,0 +1,64 @@
+﻿@*@model List<CommunityToolShedMvc.Models.Tool>*@
+@model CommunityToolShedMvc.ViewModels.SearchViewModel
+
+
+
+
+@{
+    ViewBag.Title = "Search";
+}
+
+<h2>Search</h2>
+
+@*@Html.DropDownList(Model.Type, new SelectList())*@
+
+
+<div>
+    @using (Html.BeginForm())
+    {
+        @Html.DropDownListFor(m => m.CategoryId, Model.CategorySelectList, "Tool Type")
+        @Html.DropDownListFor(m => m.AgeId, Model.AgeSelectList, "Age")
+        @Html.TextBoxFor(m => m.ItemName)
+        <button type="submit">Submit</button>
+    }
+   
+</div>
+
+<table class="table table-sm table-striped table-hover">
+    <thead class="thead-dark">
+        <tr>
+            <th>Name</th>
+            <th>Warnings</th>
+            <th>Age</th>
+            @*<th>Owner</th>*@
+        </tr>
+    </thead>
+    @foreach (var tool in Model.Tools)
+    {
+        <tr>
+            <td>@tool.Name</td>
+            <td>@tool.Warnings</td>
+            <td>@tool.Age</td>
+            <td>@Html.ActionLink("Borrow", "Detail", "Tools", new { id = tool.id}, null)</td>
+        </tr>
+    }
+</table>
+@Html.ActionLink("Add Item", "Add", "Tools")
+
+
+@*<div class="row">
+
+    <div class="col-sm-3" style="background-color: red">
+        <div>
+            <select class="form-control">
+                @foreach (var tool in Model)
+                {
+                    <option value="one">@tool.Name</option>
+                }
+
+
+            </select>
+        </div>
+    </div>
+
+</div>*@
